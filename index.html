@@ -1,1 +1,385 @@
-
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bruce | Economics Applicant Portfolio</title>
+     <style>
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+             scroll-behavior: smooth;
+         }
+         :root {
+             --navy: #0f2c4b;
+             --slate: #4a5a70;
+             --light-gray: #f3f6fa;
+             --white: #ffffff;
+             --accent: #2563eb;
+         }
+         body {
+             background-color: var(--light-gray);
+             color: var(--navy);
+             line-height: 1.7;
+         }
+         /* Navigation Bar */
+         nav {
+             position: fixed;
+             width: 100%;
+             background: var(--white);
+             padding: 1.2rem 8%;
+             box-shadow: 0 2px 10px rgba(15, 44, 75, 0.08);
+             z-index: 999;
+         }
+         .nav-container {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+         .logo {
+             font-size: 1.5rem;
+             font-weight: 700;
+             color: var(--navy);
+         }
+         .nav-links a {
+             margin-left: 2rem;
+             text-decoration: none;
+             color: var(--slate);
+             font-weight: 500;
+             transition: color 0.3s ease;
+         }
+         .nav-links a:hover {
+             color: var(--accent);
+         }
+         /* Hero Section */
+         .hero {
+             min-height: 100vh;
+             background: linear-gradient(135deg, #13315c 0%, #0b2447 100%);
+             color: var(--white);
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             padding: 0 8%;
+             padding-top: 80px;
+         }
+         .hero h1 {
+             font-size: 3.8rem;
+             margin-bottom: 0.8rem;
+         }
+         .hero p {
+             font-size: 1.3rem;
+             max-width: 650px;
+             color: #cbd5e1;
+             margin-bottom: 2.5rem;
+         }
+         .cta-btn {
+             display: inline-block;
+             padding: 1rem 2.4rem;
+             background: var(--accent);
+             color: white;
+             text-decoration: none;
+             border-radius: 8px;
+             font-weight: 600;
+             transition: all 0.3s ease;
+             width: fit-content;
+         }
+         .cta-btn:hover {
+             background: #1d4ed8;
+             transform: translateY(-3px);
+             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+         }
+         /* Shared Section Style */
+         section {
+             padding: 7rem 8%;
+         }
+         .section-title {
+             font-size: 2.4rem;
+             color: var(--navy);
+             margin-bottom: 3rem;
+             position: relative;
+         }
+         .section-title::after {
+             content: "";
+             position: absolute;
+             left: 0;
+             bottom: -10px;
+             width: 70px;
+             height: 4px;
+             background: var(--accent);
+             border-radius: 2px;
+         }
+         .container {
+             max-width: 1200px;
+             margin: 0 auto;
+         }
+         /* About Section */
+         .about-content {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 4rem;
+             align-items: center;
+         }
+         .about-text h3 {
+             font-size: 1.6rem;
+             margin-bottom: 1rem;
+             color: var(--navy);
+         }
+         .about-text p {
+             color: var(--slate);
+             font-size: 1.05rem;
+             margin-bottom: 1.2rem;
+         }
+         .highlight-card {
+             background: var(--white);
+             padding: 2.2rem;
+             border-radius: 12px;
+             box-shadow: 0 4px 16px rgba(15, 44, 75, 0.07);
+         }
+         .highlight-card h4 {
+             font-size: 1.3rem;
+             margin-bottom: 1rem;
+             color: var(--accent);
+         }
+         /* Academic Experience Section */
+         .exp-card {
+             background: var(--white);
+             padding: 2.5rem;
+             border-radius: 12px;
+             box-shadow: 0 4px 16px rgba(15, 44, 75, 0.07);
+             max-width: 900px;
+         }
+         .exp-card h3 {
+             font-size: 1.8rem;
+             margin-bottom: 1rem;
+             color: var(--navy);
+         }
+         .exp-card .tag {
+             display: inline-block;
+             background: rgba(37, 99, 235, 0.1);
+             color: var(--accent);
+             padding: 0.4rem 1rem;
+             border-radius: 30px;
+             font-weight: 600;
+             margin-bottom: 1.5rem;
+         }
+         .exp-card p {
+             color: var(--slate);
+             font-size: 1.05rem;
+         }
+         /* Academic Interest Section */
+         .interest-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+             gap: 2.5rem;
+         }
+         .interest-card {
+             background: var(--white);
+             padding: 2.2rem;
+             border-radius: 12px;
+             box-shadow: 0 4px 16px rgba(15, 44, 75, 0.07);
+             transition: transform 0.3s ease;
+         }
+         .interest-card:hover {
+             transform: translateY(-6px);
+         }
+         .interest-card h3 {
+             font-size: 1.5rem;
+             margin-bottom: 1rem;
+             color: var(--navy);
+         }
+         .interest-card p {
+             color: var(--slate);
+         }
+         /* Hobbies & Strengths Section */
+         .hobby-wrap {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+             gap: 2rem;
+         }
+         .hobby-card {
+             background: var(--white);
+             padding: 2rem;
+             border-radius: 12px;
+             box-shadow: 0 4px 16px rgba(15, 44, 75, 0.07);
+         }
+         .hobby-card h4 {
+             font-size: 1.3rem;
+             margin-bottom: 0.8rem;
+             color: var(--navy);
+         }
+         .strength-list {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 1rem;
+             margin-top: 2rem;
+         }
+         .strength-tag {
+             background: rgba(15, 44, 75, 0.08);
+             padding: 0.6rem 1.4rem;
+             border-radius: 30px;
+             color: var(--navy);
+             font-weight: 500;
+         }
+         /* Contact Footer */
+         footer {
+             background: var(--navy);
+             color: var(--white);
+             padding: 4rem 8%;
+         }
+         .footer-container h2 {
+             font-size: 2rem;
+             margin-bottom: 1.2rem;
+         }
+         .footer-container p {
+             color: #cbd5e1;
+             max-width: 550px;
+             margin-bottom: 2rem;
+         }
+         .copyright {
+             margin-top: 3rem;
+             padding-top: 2rem;
+             border-top: 1px solid rgba(255,255,255,0.15);
+             color: #94a3b8;
+             font-size: 0.95rem;
+         }
+         /* Responsive Adjustment */
+         @media(max-width: 900px) {
+             .about-content {
+                 grid-template-columns: 1fr;
+             }
+             .hero h1 {
+                 font-size: 2.6rem;
+             }
+             .nav-links {
+                 display: none;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <!-- Navigation Bar -->
+     <nav>
+         <div class="nav-container">
+             <div class="logo">Bruce Portfolio</div>
+             <div class="nav-links">
+                 <a href="#about">About Me</a>
+                 <a href="#experience">HKU Institute</a>
+                 <a href="#interest">Economics Interest</a>
+                 <a href="#hobbies">Strengths & Hobbies</a>
+                 <a href="#contact">Contact</a>
+             </div>
+         </div>
+     </nav>
+     <!-- Hero Section -->
+     <section class="hero">
+         <h1>Bruce</h1>
+         <p>Economics Program Applicant | HKU Summer Institute Participant | Well-Rounded Middle-Grade Student</p>
+         <a href="#about" class="cta-btn">Explore My Profile</a>
+     </section>
+     <!-- About Me Section -->
+     <section id="about">
+         <div class="container">
+             <h2 class="section-title">About Me</h2>
+             <div class="about-content">
+                 <div class="about-text">
+                     <h3>A Curious Learner Eager to Study Economics</h3>
+                     <p>I am Bruce, a motivated middle-grade student with a deep and consistent passion for economics. I am fascinated by how market mechanisms, social policies and human behaviors shape economic activities around the world.</p>
+                     <p>I actively seek advanced academic opportunities to expand my knowledge beyond standard classroom learning. Completing the HKU Summer Institute is one of my most valuable academic milestones, which greatly strengthened my critical thinking and independent research abilities.</p>
+                     <p>To maintain balanced personal development, I stick to regular sports training. Playing basketball and badminton teaches me teamwork, resilience and self-discipline, qualities that also support my academic exploration and long-term study goals.</p>
+                 </div>
+                 <div class="highlight-card">
+                     <h4>Core Academic Highlight</h4>
+                     <p>I have finished the prestigious HKU Summer Institute, an intensive academic program hosted by the University of Hong Kong. During the program, I got exposed to university-level academic training, interacted with outstanding peers and guided instructors, and built a solid foundation for my future undergraduate economics study.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- HKU Summer Institute Experience -->
+     <section id="experience" style="background: var(--white);">
+         <div class="container">
+             <h2 class="section-title">HKU Summer Institute Experience</h2>
+             <div class="exp-card">
+                 <span class="tag">Academic Achievement</span>
+                 <h3>Completed Summer Institute of The University of Hong Kong</h3>
+                 <p>Taking part in HKU’s summer institute was a transformative academic experience for me. This program allowed me to step into a genuine university learning environment earlier than most students at my grade level.</p>
+                 <p>I participated in seminar-style lectures, group research discussions and guided academic workshops related to social science and economic logic. Through communicating with professors and fellow participants from different regions, I learned to observe real-world economic phenomena from a more objective and logical perspective.</p>
+                 <p>This experience confirmed my strong determination to apply for an economics undergraduate program. It helped me understand the rigorous thinking standards required for university economics education, and inspired me to keep exploring economic theories and social economic issues in my daily study.</p>
+             </div>
+         </div>
+     </section>
+     <!-- Academic Interest: Economics -->
+     <section id="interest">
+         <div class="container">
+             <h2 class="section-title">My Passion for Economics</h2>
+             <div class="interest-grid">
+                 <div class="interest-card">
+                     <h3>Curiosity for Market Logic</h3>
+                     <p>I am deeply interested in how supply, demand and policy influence market operation. I enjoy reading news and articles about domestic and international economic trends, and try to analyze how small decisions create large-scale economic impacts.</p>
+                 </div>
+                 <div class="interest-card">
+                     <h3>Desire for Systematic University Learning</h3>
+                     <p>My short-term academic goal is to enter a formal undergraduate economics program. I hope to systematically learn microeconomics, macroeconomics and related social science subjects, and develop professional economic analysis skills under university guidance.</p>
+                 </div>
+                 <div class="interest-card">
+                     <h3>Link Theory with Real Society</h3>
+                     <p>I believe economics is not only abstract formulas but a tool to understand society. I love connecting economic knowledge with daily life, public policies and industry development, forming comprehensive and objective views on social economic topics.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- Hobbies & Personal Strengths -->
+     <section id="hobbies" style="background: var(--white);">
+         <div class="container">
+             <h2 class="section-title">Sports Hobbies & Personal Strengths</h2>
+             <div class="hobby-wrap">
+                 <div class="hobby-card">
+                     <h4>Basketball</h4>
+                     <p>I regularly play basketball with teammates. Team matches teach me collaboration, communication and the importance of coordinating with others to reach shared goals. It also builds my mental resilience when facing pressure and competition.</p>
+                 </div>
+                 <div class="hobby-card">
+                     <h4>Badminton</h4>
+                     <p>Badminton cultivates my focus, quick decision-making and self-discipline. Solo and doubles training helps me maintain stable mindset whether competing independently or cooperating with partners, a trait I also bring into academic group work.</p>
+                 </div>
+             </div>
+             <div class="strength-list">
+                 <span class="strength-tag">Independent Academic Exploration</span>
+                 <span class="strength-tag">Critical Thinking</span>
+                 <span class="strength-tag">Strong Self-Discipline</span>
+                 <span class="strength-tag">Teamwork & Communication</span>
+                 <span class="strength-tag">Resilience Under Pressure</span>
+                 <span class="strength-tag">Long-Term Learning Initiative</span>
+             </div>
+         </div>
+     </section>
+     <!-- Contact Footer -->
+     <footer id="contact">
+         <div class="footer-container">
+             <h2>Get In Touch</h2>
+             <p>Thank you for viewing my university application portfolio. I am eager to pursue further study in economics and welcome any opportunity for communication regarding academic admission.</p>
+             <p>Email: your-email@example.com (replace with your personal email)</p>
+             <div class="copyright">
+                 © 2026 Bruce. All rights reserved. University Admissions Portfolio.
+             </div>
+         </div>
+     </footer>
+     <!-- Subtle Scroll Fade Animation JS -->
+     <script>
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                 if(entry.isIntersecting) {
+                     entry.target.style.opacity = "1";
+                     entry.target.style.transform = "translateY(0)";
+                 }
+             })
+         }, {threshold: 0.1});
+         document.querySelectorAll(".interest-card, .hobby-card, .exp-card, .highlight-card").forEach(el => {
+             el.style.opacity = "0";
+             el.style.transform = "translateY(25px)";
+             el.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+             observer.observe(el);
+         })
+     </script>
+ </body>
+ </html>
